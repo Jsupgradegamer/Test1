@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 2</title>
+    <script>
+        // Check karo ki access hai ya nahi
+        if (localStorage.getItem("accessGranted") !== "true") {
+            alert("Access Denied! Pehle Index Page se button click karo.");
+            window.location.href = "index.html"; // Wapas Index Page pe bhej do
+        }
+    </script>
+</head>
+<body>
+    <h2>Welcome to Page 2</h2>
+    <p>You have successfully accessed this page.</p>
+</body>
+</html>
