@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Hidden Content</title>
+    <style>
+        /* Normal screen par hidden rahega */
+        #hiddenPrintContent {
+            display: none;
+        }
+
+        /* Jab print mode chalu hoga tab yeh visible hoga */
+        @media print {
+            #hiddenPrintContent { display: block; }  /* Hidden content print hone lagega */
+            .no-print { display: none; }  /* Normal UI ka content hide ho jayega */
+        }
+    </style>
+    <script>
+        function printHiddenContent() {
+            window.print();
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Normal Page Content</h2>
+    <p>Yeh content screen pe dikhega, magar print nahi hoga.</p>
+
+    <!-- Yeh content sirf print hone pe dikhega -->
+    <div id="hiddenPrintContent">
+        <h3>Confidential Report</h3>
+        <p>Yeh sirf print hone ke time show hoga.</p>
+        <p><strong>Report Date:</strong> 2025-03-21</p>
+    </div>
+
+    <!-- Button jo print karega -->
+    <button class="no-print" onclick="printHiddenContent()">Print Report</button>
+
+</body>
+</html>
