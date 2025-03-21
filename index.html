@@ -1,0 +1,207 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Entry</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #888888;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-box {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.black-box {
+    background: black;
+    color: white;
+}
+
+.white-box {
+    background: white;
+    color: black;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #555;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #666;
+    color: white;
+}
+
+.submit-btn {
+    margin-top: 20px;
+   padding: 10px 20px;
+    font-size: 16px;
+    background: gray;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.history-btn, .check-items-btn ,#buttons,#btn{
+   /* padding: 15px 30px;*/
+    font-size: 18px;
+    font-weight: bold;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+</style>
+</head>
+<body id="body">
+
+    <div class="container">
+        <!-- Left Side Form -->
+        <div class="form-box black-box">
+            <h2>Item Name</h2>
+            <select>
+                <option>Select Item</option>
+                <option>Item 1</option>
+                <option>Item 2</option>
+                <option>Item 3</option>
+            </select>
+
+            <h2>Quantity</h2>
+            <select>
+                <option>Select Quantity</option>
+                <option>1</option>
+                <option>5</option>
+                <option>10</option>
+            </select>
+
+            <button class="submit-btn">SUBMIT</button>
+        </div>
+
+        <!-- Right Side Summary -->
+        <div class="form-box white-box" id="prints">
+            <h2>Product Summary</h2>
+            <table>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Item 1</td>
+                    <td>2</td>
+                    <td>$40</td>
+                </tr>
+                <tr>
+                    <td>Item 2</td>
+                    <td>5</td>
+                    <td>$100</td>
+                </tr>
+            </table>
+
+            <h2>Total</h2>
+            <select>
+                <option>Select Total</option>
+                <option>$50</option>
+                <option>$100</option>
+                <option>$150</option>
+            </select>
+
+            <h2>Payment Mode</h2>
+            <select>
+                <option>Select Payment Mode</option>
+                <option>Cash</option>
+                <option>Card</option>
+                <option>Online</option>
+            </select>
+
+            <button class="submit-btn">SUBMIT</button>
+            <button class="submit-btn" onclick="k()">Submit/print</button>
+        </div>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons">
+        <button class="history-btn" onclick="history()">History</button>
+
+        <button id="buttons"onclick="Logout()">Log out</button>
+        <button  type="submit" id="btn">SALE History</button>
+    </div>
+    <div class="box">
+      <button type="submit" onclick="back()">back</button>
+      
+    </div>
+<script>
+            
+        
+/* function check(){
+    window.location.href="check.html";
+  }
+  function history(){
+    window.location.href="history.html";
+  }
+  function Logout(){
+    localStorage.clear();
+    window.location.href=("index.html");
+  }*/
+function k() {
+  
+   /*var pri=document.getElementById("prints");*/
+   var printContent = document.getElementById("prints").innerHTML;
+    var originalContent = document.getElementById("body").innerHTML;
+
+    document.body.innerHTML = printContent; // Sirf table ko print karne ke liye
+    
+   window.print();
+    document.getElementById("body").innerHTML = originalContent; // Wapas normal content dikhane ke liye
+  console.log("kaam hogya");
+}
+</script>
+</body>
+</html>
